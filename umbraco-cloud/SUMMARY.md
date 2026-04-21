@@ -39,7 +39,7 @@
     * [Config Transforms](build-and-customize-your-solution/set-up-your-project/project-settings/config-transforms.md)
     * [Best Practice for Working in Teams](build-and-customize-your-solution/set-up-your-project/project-settings/team-workflow-on-cloud.md)
     * [Dedicated Resources](build-and-customize-your-solution/set-up-your-project/project-settings/dedicated-resources.md)
-    * [Upgrade your Plan](build-and-customize-your-solution/set-up-your-project/project-settings/upgrade-your-plan.md)
+    * [Change your Plan](build-and-customize-your-solution/set-up-your-project/project-settings/change-your-plan.md)
     * [SMTP Settings](build-and-customize-your-solution/set-up-your-project/project-settings/smtp-settings.md)
     * [Proactive Auto-Heal](build-and-customize-your-solution/set-up-your-project/project-settings/proactive-auto-heal.md)
     * [Application Settings](build-and-customize-your-solution/set-up-your-project/project-settings/application-settings.md)
@@ -81,6 +81,7 @@
     * [Azure Blob Storage](build-and-customize-your-solution/handle-deployments-and-environments/media/azure-blob-storage/README.md)
       * [Connect to Azure Storage Explorer to upload files manually](build-and-customize-your-solution/handle-deployments-and-environments/media/azure-blob-storage/connect-to-azure-storage-explorer.md)
       * [Connect and Upload Files Programmatically to Azure Blob Storage](build-and-customize-your-solution/handle-deployments-and-environments/media/azure-blob-storage/connect-programatically-to-azure-storage.md)
+      * [Blob Storage Backups](build-and-customize-your-solution/handle-deployments-and-environments/media/azure-blob-storage/blob-storage-backups.md)
   * [Manage Environments](build-and-customize-your-solution/handle-deployments-and-environments/manage-environments.md)
 * [Sustainability Best Practices](https://docs.umbraco.com/sustainability-best-practices/)
 

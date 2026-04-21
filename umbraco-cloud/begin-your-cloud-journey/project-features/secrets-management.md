@@ -23,7 +23,7 @@ Typical secrets are **Private keys**, **third-party API tokens**, **database pas
 When secrets are added, they are exposed only to the assigned environments. Each secret is assigned as an environment variable at runtime using the secret name. The environment accesses the secret through a Key Vault reference secured by the environment’s managed identity.
 
 {% hint style="info" %}
-Starter Plans have a limit of 5 secrets per environment, whereas higher-tier plans do not have a limit
+Starter Plans have a limit of 5 secrets per environment, whereas higher plans do not have a limit
 {% endhint %}
 
 ## How to add Secrets

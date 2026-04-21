@@ -214,11 +214,11 @@ You can change your Umbraco Cloud project to run in a dedicated setup with addit
 
 ![Dedicated Resources](../../../.gitbook/assets/dedicated-resources.png)
 
-### Upgrade Project
+### Change Plan
 
-You can upgrade your project to a **Standard** or a **Professional** plan from the **Management** menu, depending on your needs. The option is not available if you are already on a specific plan or if you are running in **Trial** mode.
+You can change your Umbraco Cloud plan to upgrade to a higher plan or downgrade to a lower plan depending on your project needs. You can manage plan changes and dedicated resources from the **Management** menu.
 
-![Upgrade Project](../../../.gitbook/assets/upgrade-project.png)
+![Change Plan](../../../.gitbook/assets/change-plan.png)
 
 ### Rename Project
 

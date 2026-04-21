@@ -13,13 +13,14 @@ description: Get an overview of the release notes for each month in 2026.
 * **Start and stop environments** - You can now start and stop your Cloud environments directly from the project overview, giving you more control over your hosting resources.
 * **Release Umbraco.Cloud.Cms 17.1.0** - Preparation for the upcoming Load Balancing feature.
 * **Proactive Auto-Heal toggle for Dedicated plans** - Projects on a Dedicated plan can now disable Proactive Auto-Heal. This prevents automatic restarts during high-resource workloads such as content imports, index rebuilds, and schema migrations.
+* **Downgrade plan Support** - The "Change plan" feature now supports both upgrades and downgrades for all admin users with self-service plan changes, including environment limit validation and downgrade warnings.
 
 ## [February 2026](2026-02-releasenotes.md)
 
 * **Release Umbraco.Cloud.Cms 13.0.1, 16.0.2 & 17.0.2** - Adds middleware that ensures the internal Azure URL remains hidden on initial requests.
 * **Opt out of automatic patch upgrades** - Allows project admins to opt out of automatic patch upgrades so you can now fully control when your project upgrades.
 * **Disable parallel builds** - Disable parallel builds for Umbraco 9+ sites to prevent resource contention.
-* **Project invite notifications** - Adds UI notifications when receiving project invitations, improving visibility and making it easier to respond directly from the Portal. 
+* **Project invite notifications** - Adds UI notifications when receiving project invitations, improving visibility and making it easier to respond directly from the Portal.
 
 ## [January 2026](2026-01-releasenotes.md)
 
