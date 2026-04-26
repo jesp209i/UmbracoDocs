@@ -16,6 +16,7 @@ The index detail view uses an extension slot for composable UI. You can register
 
 ### The `ManifestSearchIndexDetailBox` type
 
+{% code title="types.ts" %}
 ```typescript
 interface ManifestSearchIndexDetailBox extends ManifestElement, ManifestWithDynamicConditions {
   type: 'searchIndexDetailBox';
@@ -27,12 +28,14 @@ interface MetaSearchIndexDetailBox {
   column?: 'left' | 'right';
 }
 ```
+{% endcode %}
 
 * `label` - The box heading. Supports localization keys (for example `#myPackage_myLabel`).
 * `column` - Which column to place the box in. Use `'left'` to place it in the main content column, or omit or use `'right'` to place it in the sidebar column.
 
 ### Registering a detail box manifest
 
+{% code title="my-bundle.manifests.ts" %}
 ```typescript
 export const manifests: Array<UmbExtensionManifest> = [
   {
@@ -48,6 +51,7 @@ export const manifests: Array<UmbExtensionManifest> = [
   },
 ];
 ```
+{% endcode %}
 
 ### Creating the box element
 
@@ -137,6 +141,7 @@ These constants are exported from `@umbraco-cms/search/global`.
 
 ### Registering a document entity action
 
+{% code title="my-bundle.manifests.ts" %}
 ```typescript
 import { UMB_SEARCH_DOCUMENT_ENTITY_TYPE } from '@umbraco-cms/search/global';
 
@@ -157,6 +162,7 @@ export const manifests: Array<UmbExtensionManifest> = [
   },
 ];
 ```
+{% endcode %}
 
 The `forEntityTypes` array determines where the action appears. Use `'search-document'` for per-document actions in the results table, or `'search-index'` for per-index actions in the collection and workspace header.
 
@@ -191,6 +197,7 @@ export default MySearchDocumentEntityAction;
 
 If your entity action should render as a navigable link (rather than triggering an immediate action), implement `getHref()` instead of `execute()`. This allows `umb-entity-actions-table-column-view` to render it as a standard `<a>` link:
 
+{% code title="my-routable.entity-action.ts" %}
 ```typescript
 export class MyRoutableEntityAction extends UmbEntityActionBase<never> {
   override async getHref() {
@@ -205,6 +212,7 @@ export class MyRoutableEntityAction extends UmbEntityActionBase<never> {
   }
 }
 ```
+{% endcode %}
 
 See [Routable modals](backoffice-extensions.md#routable-modals) for a complete example using this pattern.
 
@@ -224,6 +232,7 @@ A workspace view adds an entirely new tab to the search workspace. Use this when
 
 Target the search workspace using the `UMB_WORKSPACE_CONDITION_ALIAS` condition:
 
+{% code title="my-bundle.manifests.ts" %}
 ```typescript
 import { UMB_SEARCH_WORKSPACE_ALIAS } from '@umbraco-cms/search/global';
 import { UMB_WORKSPACE_CONDITION_ALIAS } from '@umbraco-cms/backoffice/workspace';
@@ -249,6 +258,7 @@ export const manifests: Array<UmbExtensionManifest> = [
   },
 ];
 ```
+{% endcode %}
 
 The `match` value must be `'Umbraco.Search.Workspace'` (or use the `UMB_SEARCH_WORKSPACE_ALIAS` constant from `@umbraco-cms/search/global`).
 
@@ -360,6 +370,7 @@ Key points:
 
 Register the modal as a standard Umbraco modal extension:
 
+{% code title="my-bundle.manifests.ts" %}
 ```typescript
 export const manifests: Array<UmbExtensionManifest> = [
   // The non-visual route provider (registered as searchIndexDetailBox)
@@ -379,6 +390,7 @@ export const manifests: Array<UmbExtensionManifest> = [
   },
 ];
 ```
+{% endcode %}
 
 The route provider is registered as a `searchIndexDetailBox`, so it loads inside the detail view, where it has access to the workspace context.
 
@@ -426,6 +438,7 @@ When building a search provider as a separate npm package/bundle, you need to ma
 
 Add a global type augmentation in your manifests file:
 
+{% code title="my-bundle.manifests.ts" %}
 ```typescript
 import type { ManifestElement } from '@umbraco-cms/backoffice/extension-api';
 
@@ -446,6 +459,7 @@ export const manifests: Array<UmbExtensionManifest> = [
   // ... other manifests
 ];
 ```
+{% endcode %}
 
 This is a minimal declaration; it does not import Core Client types, it only tells TypeScript that `'searchIndexDetailBox'` is a valid extension type.
 
@@ -453,6 +467,7 @@ This is a minimal declaration; it does not import Core Client types, it only tel
 
 To import from `@umbraco-cms/search/settings` (for example `UMB_SEARCH_WORKSPACE_CONTEXT`) in your provider package, add path mappings in your `tsconfig.json`:
 
+{% code title="tsconfig.json" %}
 ```json
 {
   "compilerOptions": {
@@ -467,6 +482,7 @@ To import from `@umbraco-cms/search/settings` (for example `UMB_SEARCH_WORKSPACE
   }
 }
 ```
+{% endcode %}
 
 Both `settings` and `global` paths are required because `settings` depend on `global` transitively. Adjust the relative paths to match your project layout.
 

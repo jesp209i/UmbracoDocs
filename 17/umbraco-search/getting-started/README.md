@@ -16,7 +16,7 @@ An overview of the indexed system fields is found in the [system fields](system-
 
 ## Property editor data in Umbraco Search
 
-Different [Umbraco property editors](../../umbraco-cms/fundamentals/backoffice/property-editors/built-in-umbraco-property-editors/) yield different index value types; some yield searchable `Text`, some yield filterable `Keyword`, and some yield numeric or date field types. This is important to keep in mind when searching with Umbraco Search, because the way property values are indexed directly affects the search results.
+Different [Umbraco property editors](https://docs.umbraco.com/umbraco-cms/fundamentals/backoffice/property-editors/built-in-umbraco-property-editors) yield different index value types; some yield searchable `Text`, some yield filterable `Keyword`, and some yield numeric or date field types. This is important to keep in mind when searching with Umbraco Search, because the way property values are indexed directly affects the search results.
 
 A list of the built-in Umbraco property editors and their corresponding index value types can be found in the [built-in property editors](built-in-property-editors.md) article.
 
@@ -306,7 +306,7 @@ public class MySearchService(ISearcher searcher)
 
 Use the `AccessContext` to include protected content (that is, content with public access restrictions applied) in search results.
 
-The `AccessContext` requires the ID (key) of the currently logged-in [member](../../umbraco-cms/fundamentals/data/members.md), and accepts an optional collection of group IDs.
+The `AccessContext` requires the ID (key) of the currently logged-in [member](https://docs.umbraco.com/umbraco-cms/fundamentals/data/members), and accepts an optional collection of group IDs.
 
 {% hint style="info" %}
 Umbraco Search has no knowledge of members. If public access rules are defined based on member groups, make sure to pass the group IDs alongside the member ID in `AccessContext`.

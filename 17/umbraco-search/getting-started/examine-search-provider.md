@@ -136,4 +136,4 @@ public class DisableDefaultIndexesComposer : IComposer
 
 ## Directory factory configuration
 
-The Examine search provider automatically applies the [Examine directory configuration](../../umbraco-cms/reference/configuration/examinesettings.md) from Umbraco CMS.
+The Examine search provider automatically applies the [Examine directory configuration](https://docs.umbraco.com/umbraco-cms/reference/configuration/examinesettings) from Umbraco CMS.
