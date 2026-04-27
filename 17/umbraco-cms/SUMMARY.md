@@ -281,6 +281,7 @@
     * [Notification Email Settings](extending/health-check/guides/notificationemail.md)
     * [SMTP](extending/health-check/guides/smtp.md)
     * [Strict-Transport-Security Header](extending/health-check/guides/stricttransportsecurityheader.md)
+    * [Untrusted Database Constraints](extending/health-check/guides/untrusteddatabaseconstraints.md)
 * [Language Files & Localization](extending/language-files/README.md)
   * [.NET Localization](extending/language-files/net-localization.md)
 * [Backoffice Search](extending/backoffice-search.md)
