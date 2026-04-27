@@ -4,6 +4,11 @@ description: Get an overview of the release notes for each month in 2026.
 
 # Overview 2026
 
+## [April 2026](2026-04-releasenotes.md)
+
+* **Always On toggle for Dedicated plans** - A new Always On toggle is available in the Platform Configuration section. It keeps your application loaded at all times so it does not unload after periods of inactivity.
+* **Platform Configuration section renamed** - The Auto-Heal Settings section in the Advanced Configuration has been renamed to Platform Configuration and now groups the Proactive Auto-Heal and Always On toggles.
+
 ## [March 2026](2026-03-releasenotes.md)
 
 * **Show Windows event logs on the log page** - On the environments log page we already showed the Umbraco logs, Deployment logs, Site extension logs and IIS logs. Now this page has been expanded with a new log type - Event logs.

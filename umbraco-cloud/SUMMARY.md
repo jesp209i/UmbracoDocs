@@ -41,7 +41,7 @@
     * [Dedicated Resources](build-and-customize-your-solution/set-up-your-project/project-settings/dedicated-resources.md)
     * [Change your Plan](build-and-customize-your-solution/set-up-your-project/project-settings/change-your-plan.md)
     * [SMTP Settings](build-and-customize-your-solution/set-up-your-project/project-settings/smtp-settings.md)
-    * [Proactive Auto-Heal](build-and-customize-your-solution/set-up-your-project/project-settings/proactive-auto-heal.md)
+    * [Platform Configuration](build-and-customize-your-solution/set-up-your-project/project-settings/platform-configuration.md)
     * [Application Settings](build-and-customize-your-solution/set-up-your-project/project-settings/application-settings.md)
   * [Security](build-and-customize-your-solution/set-up-your-project/security/README.md)
     * [Web Application Firewall](build-and-customize-your-solution/set-up-your-project/security/web-application-firewall.md)
@@ -164,6 +164,7 @@
 ## Release Notes
 
 * [Overview 2026](release-notes/overview-2026/README.md)
+  * [April 2026](release-notes/overview-2026/2026-04-releasenotes.md)
   * [March 2026](release-notes/overview-2026/2026-03-releasenotes.md)
   * [February 2026](release-notes/overview-2026/2026-02-releasenotes.md)
   * [January 2026](release-notes/overview-2026/2026-01-releasenotes.md)

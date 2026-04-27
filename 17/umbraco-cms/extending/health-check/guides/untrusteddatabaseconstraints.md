@@ -1,5 +1,9 @@
 ---
-description: Checks that all Umbraco foreign key and check constraints on SQL Server are trusted.
+description: >-
+  Checks that all Umbraco foreign key and check constraints on SQL Server are
+  trusted.
+tags:
+  - ai-generated
 ---
 
 # Untrusted Database Constraints

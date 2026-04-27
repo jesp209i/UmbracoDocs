@@ -144,4 +144,4 @@ redirects:
     build-and-customize-your-solution/handle-deployments-and-environments/umbraco-cicd/knownlimitationsandconsiderations: build-and-customize-your-solution/handle-deployments-and-environments/umbraco-cicd/known-limitations-and-considerations.md
     build-and-customize-your-solution/handle-deployments-and-environments/umbraco-cicd/umbracocloudapi: build-and-customize-your-solution/handle-deployments-and-environments/umbraco-cicd/umbraco-cloud-api.md
     build-and-customize-your-solution/set-up-your-project/project-settings/upgrade-your-plan: build-and-customize-your-solution/set-up-your-project/project-settings/change-your-plan.md
-    
+    build-and-customize-your-solution/set-up-your-project/project-settings/proactive-auto-heal: build-and-customize-your-solution/set-up-your-project/project-settings/platform-configuration.md

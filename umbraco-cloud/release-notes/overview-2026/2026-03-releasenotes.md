@@ -72,7 +72,7 @@ Projects on a Dedicated plan can now disable Proactive Auto-Heal from the **Conf
 
 With this release, Dedicated plan customers have full control over whether Proactive Auto-Heal is active on their project. If the project is downgraded from a Dedicated plan to a Shared plan, Proactive Auto-Heal is automatically re-enabled.
 
-For more details, see the [Proactive Auto-Heal](../../build-and-customize-your-solution/set-up-your-project/project-settings/proactive-auto-heal.md) documentation.
+For more details, see the [Platform Configuration](../../build-and-customize-your-solution/set-up-your-project/project-settings/platform-configuration.md) documentation.
 
 ## Downgrade plan Support
 
