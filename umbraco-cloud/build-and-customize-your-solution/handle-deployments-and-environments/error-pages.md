@@ -6,19 +6,19 @@ description: >-
 
 # Error Pages
 
-The Error Pages feature lets you serve a custom HTML page to visitors when your site is unavailable or experiences an error. You can assign different pages to different hostnames.
+The Error Pages feature lets you serve a custom HTML page to visitors when your site is unavailable due to platform operations. You can assign custom pages to all your hostnames.
 
-An error page is typically shown when an environment is restarting. Many deployments require a restart, so visitors may see it briefly during a deployment.
+Error pages are shown when an environment is restarting. Most deployments require a restart, so visitors may see the error page briefly.
+
+To handle error pages when the website is running, see the [Umbraco CMS tutorial: Custom Error Pages](https://docs.umbraco.com/umbraco-cms/tutorials/custom-error-page).
 
 {% hint style="info" %}
 Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are also likely unavailable. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](#error-page-authoring-guidelines) for details.
+
+You need Admin or Write access to upload, manage and assign error pages. Users with read-only access can view the tabs but cannot make changes.
 {% endhint %}
 
 You manage the feature from two tabs: **Managing Error Pages** and **Hostname Assignments**.
-
-{% hint style="info" %}
-You need Admin or Write access to upload, manage and assign error pages. Users with read-only access can view the tabs but cannot make changes.
-{% endhint %}
 
 ## Managing Error Pages
 
@@ -72,7 +72,7 @@ Use the column header dropdowns to filter by:
 - **Environment** — show only hostnames from a specific environment.
 - **Error Page** — show only hostnames using a specific page, or those using the default.
 - **Domain** — filter by registrable domain (e.g. `mysite.co.uk`).
-- **TLD** — filter by top-level domain (e.g. `.co.uk`).
+- **Top-level domain (TLD)** — filter by top-level domain (e.g. `.co.uk`).
 
 Click **Reset filters** to clear all active filters.
 
@@ -91,7 +91,7 @@ Click the assign icon on a hostname row, select a page from the dropdown, and co
 
 In the assign dialog, select **Use default (remove custom assignment)**. The hostname falls back to the Umbraco built-in default.
 
-## Error Page Authoring guidelines
+## Error Page Authoring Guidelines
 
 Keep these requirements in mind when building a custom error page:
 
@@ -99,7 +99,7 @@ Keep these requirements in mind when building a custom error page:
 - Only `.html` or `.htm` files are accepted
 - Error pages must be **self-contained** — no external resources (see below)
 
-**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, etc.) are likely to fail too. This leaves your page broken or unstyled. Everything must be inline.
+**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, etc.) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be inline.
 
 - Inline all CSS in a `<style>` block.
 - Inline all JavaScript in a `<script>` block.
@@ -115,7 +115,7 @@ Keep these requirements in mind when building a custom error page:
 </head>
 ```
 
-The `robots` tag prevents search engines from indexing your error page. The `Cache-Control` tag prevents browsers from caching it, so visitors get a fresh load once your site recovers.
+The `robots` tag prevents search engines from indexing your error page. The `Cache-Control` tag prevents browsers from caching the error page, so visitors get a fresh load once your site recovers.
 
 ### Reload mechanism
 
