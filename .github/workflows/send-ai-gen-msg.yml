@@ -10,6 +10,22 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Check org membership
+        id: check_member
+        uses: actions/github-script@v7
+        with: 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              await github.rest.orgs.checkMembershipForUser({
+                org: ýour-org-name,
+                username: context.paylod.pull_request.user.login
+              });
+              return true;
+            } catch {
+              return false;
+            }
+          
       - name: Checkout
         uses: actions/checkout@v4
 
