@@ -18,7 +18,7 @@ jobs:
           script: |
             try {
               await github.rest.orgs.checkMembershipForUser({
-                org: ýour-org-name,
+                org: umbraco,
                 username: context.paylod.pull_request.user.login
               });
               return true;
