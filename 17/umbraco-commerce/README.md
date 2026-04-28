@@ -20,9 +20,3 @@ Umbraco Commerce is the official Umbraco e-commerce addon for your Umbraco CMS w
 {% content-ref url="reference/go-behind-the-scenes.md" %}
 [go-behind-the-scenes.md](reference/go-behind-the-scenes.md)
 {% endcontent-ref %}
-
-### Using This Documentation
-
-**This documentation is aimed at developers** who have at least a basic understanding of [Umbraco](https://umbraco.com), as well as C# and MVC principals.
-
-If you require assistance you can use our support channels to seek assistance.
