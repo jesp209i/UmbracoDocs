@@ -1,58 +1,69 @@
 ---
-description: Learn how to manage Error Pages on your Umbraco Cloud projects.
+description: >-
+  Learn how to upload custom HTML error pages and assign them to hostnames on
+  your Umbraco Cloud project.
 ---
 
 # Error Pages
 
-The Error Pages feature lets you serve a custom HTML page to visitors when your site is unavailable or experiences an error. Pages can be assigned per hostname.
+The Error Pages feature lets you serve a custom HTML page to visitors when your site is unavailable or experiences an error. You can assign different pages to different hostnames.
 
-An Error Page is typically shown when an environment is restarting. Many deployments require the app service to restart, so this is also shown at some point during deployments.
+An error page is typically shown when an environment is restarting. Many deployments require a restart, so visitors may see it briefly during a deployment.
 
-## Managing Error Pages tab
+{% hint style="info" %}
+Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are also likely unavailable. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](#error-page-authoring-guidelines) for details.
+{% endhint %}
 
-This tab lists all uploaded custom HTML pages and the built-in Umbraco Default.
+You manage the feature from two tabs: **Managing Error Pages** and **Hostname Assignments**.
 
-All uploaded error pages are stored in the **Live environment's blob storage**, regardless of which environment they are assigned to. Each page is stored at the path:
+{% hint style="info" %}
+You need Admin or Write access to upload, manage and assign error pages. Users with read-only access can view the tabs but cannot make changes.
+{% endhint %}
 
-```
-error-pages/{errorPageId}.html
-```
+## Managing Error Pages
+
+This tab lists all uploaded custom HTML pages and the built-in Umbraco Default. The **Hostnames** row shows a count of how many hostnames are currently assigned to that page.
+
+![Manage Error Pages without any uploaded custom error pages](../../.gitbook/assets/cloud-error-pages-manage-empty.png)
+
+![Manage Error Pages](../../.gitbook/assets/cloud-error-pages-manage.png)
+
 
 ### Upload a page
 
-1. Click **Upload**.
-2. Select an `.html` or `.htm` file (max **20 KB**).
+1. Click **Upload Error Page**.
+2. Enter a name for the page.
 3. Optionally enter a description.
-4. Click **Upload** to confirm.
+4. Select an `.html` or `.htm` file (max **20 KB**).
+5. Click **Upload** to confirm.
 
-### Set a default
+![Upload a new Error Page](../../.gitbook/assets/cloud-error-pages-manage-upload.gif)
 
-Click the **Set** button on any uploaded page. That page becomes the default for all new hostnames added to the project. The current default error page has a checkmark.
+### Default
 
-### Actions
+Click on one of the empty radio buttons next to any uploaded page. That page becomes the fallback for all new hostnames. The active default has a checkmark in the **Default** column.
 
-**Preview and replace**
+### Modify
 
-Hover and click on any of the uploaded error pages to open the preview dialog:
+Click on any uploaded page to open the detail dialog. The dialog has three tabs:
 
-- **Preview tab** — shows the HTML content.
-- **Replace tab** — upload a new file version and optionally update the description. You do not have to reassign the page if it was already assigned to some hostnames. 
+- **Preview** — shows the HTML content as formatted code.
+- **Edit** — update the display name and description without touching the file.
+- **Replace** — upload a new file version. Hostnames already assigned to this page continue using it after the replacement — no reassignment needed.
 
-**Edit name or description**
+### Assign
 
-Click the edit icon on a row to update the display name and description without touching the file itself.
+Click **Assign** to open the assign dialog and bulk-assign that error page to one or more hostnames.
 
-**Assign**
+### Delete
 
-Bulk assign the error page to the current hostnames.
+Click the delete icon on a row to remove the page. If the page is assigned to any hostnames, those hostnames revert to the Umbraco default.
 
-**Delete**
-
-Click the delete icon.
-
-## Hostname Assignments tab
+## Hostname Assignments
 
 This tab shows every hostname across all environments and which error page it currently uses.
+
+![Error Pages - Hostname Assignments](../../.gitbook/assets/cloud-error-pages-hostnames.png)
 
 ### Filter the list
 
@@ -65,29 +76,30 @@ Use the column header dropdowns to filter by:
 
 Click **Reset filters** to clear all active filters.
 
-### Actions
-**Assign to a single hostname**
+### Assign to a single hostname
 
-Click the assign icon on any hostname row, select a page from the dropdown, and confirm.
+Click the assign icon on a hostname row, select a page from the dropdown, and confirm.
 
-**Bulk assign**
+### Bulk assign
 
-1. Check the checkboxes for the hostnames you want to update (or use **Select all** to pick everything currently shown).
-2. Click **Assign**.
-3. Choose a page from the dropdown and confirm.
+1. Check the checkboxes next to the hostnames you want to update.
+2. Use **Select all** to pick all hostnames currently shown.
+3. Click **Assign**.
+4. Choose a page from the dropdown and confirm.
 
-**Revert to default**
+### Revert to default
 
-In the assign dialog, select **Use default (remove custom assignment)**. This removes the custom assignment and makes the hostname fall back to the environment default (or the Umbraco built-in default if none is set).
+In the assign dialog, select **Use default (remove custom assignment)**. The hostname falls back to the Umbraco built-in default.
 
 ## Error Page Authoring guidelines
 
-Here are some guidelines to help you build a custom Error Page.
-- **Max file size** of 20 KB (HTML + CSS + JS combined)
+Keep these requirements in mind when building a custom error page:
+
+- **Max file size**: 20 KB (HTML, CSS, and JS combined)
 - Only `.html` or `.htm` files are accepted
 - Error pages must be **self-contained** — no external resources (see below)
 
-**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, etc.) are very likely to fail too, leaving your page broken or unstyled. Everything must be inline.
+**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, etc.) are likely to fail too. This leaves your page broken or unstyled. Everything must be inline.
 
 - Inline all CSS in a `<style>` block.
 - Inline all JavaScript in a `<script>` block.
@@ -97,19 +109,21 @@ Here are some guidelines to help you build a custom Error Page.
 ### Recommended meta tags
 
 ```html
-<meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Cache-Control" content="no-cache">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache">
+</head>
 ```
 
-The `robots` tag prevents search engines from indexing your error page. The `Cache-Control` tag prevents browsers from caching it, so visitors see a fresh load once your site recovers.
+The `robots` tag prevents search engines from indexing your error page. The `Cache-Control` tag prevents browsers from caching it, so visitors get a fresh load once your site recovers.
 
 ### Reload mechanism
 
-Tell visitors what is happening and give them a way back. 
+Tell visitors what is happening and give them a way back.
 
-**Auto-poll (recommended)** — JavaScript that periodically sends a `HEAD` request to the current URL and reloads automatically when the site responds with `200`. Use exponential backoff with jitter to avoid hammering the server, and surface a manual refresh button after a set number of failed attempts:
+**Auto-poll (recommended)** — Use JavaScript to periodically send a `HEAD` request to the current URL and reload automatically when the site responds with `200`. Use exponential backoff with jitter to avoid hammering the server, and show a manual refresh button after a set number of failed attempts:
 
-```js
+```javascript
 var MAX_ATTEMPTS = 20;
 var attempt = 0;
 
@@ -149,7 +163,7 @@ setTimeout(poll, 5000); // first check after 5 s
 
 ### Size budget
 
-A typical well-crafted error page stays comfortably within the 20 KB limit:
+A typical well-crafted error page stays within the 20 KB limit:
 
 | Part | Typical size |
 |---|---|
