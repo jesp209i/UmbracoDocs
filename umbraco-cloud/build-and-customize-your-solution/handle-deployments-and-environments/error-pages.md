@@ -22,7 +22,7 @@ You manage the feature from two tabs: **Managing Error Pages** and **Hostname As
 
 ## Managing Error Pages
 
-This tab lists all uploaded custom HTML pages and the built-in Umbraco Default. The **Hostnames** row shows a count of how many hostnames are currently assigned to that page.
+This tab lists all uploaded custom HTML pages and the built-in Umbraco Cloud Default. The **Hostnames** row shows a count of how many hostnames are currently assigned to that page.
 
 ![Manage Error Pages without any uploaded custom error pages](../../.gitbook/assets/cloud-error-pages-manage-empty.png)
 
