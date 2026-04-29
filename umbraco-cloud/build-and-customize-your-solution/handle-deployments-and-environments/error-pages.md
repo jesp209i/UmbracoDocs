@@ -41,7 +41,7 @@ This tab lists all uploaded custom HTML pages and the built-in Umbraco Cloud Def
 
 ### Default
 
-Click on one of the empty radio buttons next to any uploaded page. That page becomes the fallback for all new hostnames. The active default has a checkmark in the **Default** column.
+Click on one of the empty radio buttons next to any uploaded page. That page becomes the fallback for all new hostnames. The active default is selected in the **Default** column.
 
 ### Modify
 
