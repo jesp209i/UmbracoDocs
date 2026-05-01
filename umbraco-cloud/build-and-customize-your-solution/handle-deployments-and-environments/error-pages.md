@@ -163,7 +163,7 @@ setTimeout(poll, 5000); // first check after 5 s
 
 ### Complete template
 
-The following is a self-contained starting point that combines all the guidelines above. Adjust the heading, message, and styles to match your brand.
+The following is a self-contained starting point that combines all the guidelines above. Adjust the heading, message, and styles to suit your site.
 
 ```html
 <!DOCTYPE html>
