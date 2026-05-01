@@ -57,7 +57,7 @@ Click **Assign** to open the assign dialog and bulk-assign that error page to on
 
 ### Delete
 
-Click the delete icon on a row to remove the page. If the page is assigned to any hostnames, those hostnames revert to the Umbraco default.
+Click the delete icon on a row to remove the page. If the page was assigned to any hostnames, those hostnames revert to the Umbraco Cloud error page.
 
 ## Hostname Assignments
 
@@ -89,7 +89,7 @@ Click the assign icon on a hostname row, select a page from the dropdown, and co
 
 ### Revert to default
 
-In the assign dialog, select **Use default (remove custom assignment)**. The hostname falls back to the Umbraco built-in default.
+In the assign dialog, select **Use default (remove custom assignment)**. The hostname falls back to the Umbraco Cloud error page.
 
 ## Error Page Authoring Guidelines
 
@@ -161,13 +161,97 @@ setTimeout(poll, 5000); // first check after 5 s
 <noscript><button onclick="location.reload()">Refresh page</button></noscript>
 ```
 
-### Size budget
+### Complete template
 
-A typical well-crafted error page stays within the 20 KB limit:
+The following is a self-contained starting point that combines all the guidelines above. Adjust the heading, message, and styles to match your brand.
 
-| Part | Typical size |
-|---|---|
-| HTML structure + text | ~3–4 KB |
-| Inline CSS | ~5–8 KB |
-| Inline JS (polling) | ~3–5 KB |
-| **Total** | **~12–17 KB** |
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <title>Site Unavailable</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+
+    p { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 1.5rem; }
+
+    button {
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.25rem;
+    }
+
+    button:hover { background: #555; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>We'll be right back</h1>
+    <p>This site is temporarily unavailable. We are working on it and will be back shortly.</p>
+    <button id="refresh-btn" onclick="location.reload()" style="display:none">Refresh page</button>
+    <noscript><button onclick="location.reload()">Refresh page</button></noscript>
+  </div>
+  <script>
+    var MAX_ATTEMPTS = 20;
+    var attempt = 0;
+
+    function getDelay(n) {
+      var base   = Math.min(5000 * Math.pow(2, n - 1), 60000);
+      var jitter = base * 0.1 * (Math.random() * 2 - 1);
+      return Math.round(base + jitter);
+    }
+
+    function poll() {
+      attempt++;
+      fetch(location.href + '?_poll=' + Date.now(), { method: 'HEAD', cache: 'no-store' })
+        .then(function(res) {
+          if (res.ok) { location.reload(); return; }
+          scheduleNext();
+        })
+        .catch(scheduleNext);
+    }
+
+    function scheduleNext() {
+      if (attempt >= MAX_ATTEMPTS) {
+        document.getElementById('refresh-btn').style.display = 'inline-block';
+        return;
+      }
+      setTimeout(poll, getDelay(attempt));
+    }
+
+    setTimeout(poll, 5000); // first check after 5 s
+  </script>
+</body>
+</html>
+```
