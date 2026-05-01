@@ -20,7 +20,7 @@ This section contains the release notes for Umbraco Forms 17 including all chang
 
 ### [17.3.2](https://github.com/umbraco/Umbraco.Forms.Issues/issues?q=is%3Aissue+label%3Arelease%2F17.3.2) (May 1st 2026)
 
-* Fix: rename workflow entity type to avoid clashes with Umbraco Workflow [#1694](https://github.com/umbraco/Umbraco.Forms.Issues/issues/1694)
+* Fix: rename `workflow` entity types to avoid clashes with Umbraco Workflow [#1694](https://github.com/umbraco/Umbraco.Forms.Issues/issues/1694)
 
 ### [17.3.1](https://github.com/umbraco/Umbraco.Forms.Issues/issues?q=is%3Aissue+label%3Arelease%2F17.3.1) (April 30th 2026)
 
