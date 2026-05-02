@@ -71,8 +71,8 @@ Use the column header dropdowns to filter by:
 
 - **Environment** — show only hostnames from a specific environment.
 - **Error Page** — show only hostnames using a specific page, or those using the default.
-- **Domain** — filter by registrable domain (e.g. `mysite.co.uk`).
-- **Top-level domain (TLD)** — filter by top-level domain (e.g. `.co.uk`).
+- **Domain** — filter by registrable domain (for example `mysite.co.uk`).
+- **Top-level domain (TLD)** — filter by top-level domain (for example `.co.uk`).
 
 Click **Reset filters** to clear all active filters.
 
@@ -99,7 +99,7 @@ Keep these requirements in mind when building a custom error page:
 - Only `.html` or `.htm` files are accepted
 - Error pages must be **self-contained** — no external resources (see below)
 
-**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, etc.) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be inline.
+**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, and so on) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be inline.
 
 - Inline all CSS in a `<style>` block.
 - Inline all JavaScript in a `<script>` block.
@@ -121,7 +121,7 @@ The `robots` tag prevents search engines from indexing your error page. The `Cac
 
 Tell visitors what is happening and give them a way back.
 
-**Auto-poll (recommended)** — Use JavaScript to periodically send a `HEAD` request to the current URL and reload automatically when the site responds with `200`. Use exponential backoff with jitter to avoid hammering the server, and show a manual refresh button after a set number of failed attempts:
+**Auto-poll (recommended)** — Use JavaScript to periodically send a `HEAD` request to the current URL and reload automatically when the site responds with `200`. Use exponential back-off with jitter to avoid hammering the server, and show a manual refresh button after a set number of failed attempts:
 
 ```javascript
 var MAX_ATTEMPTS = 20;

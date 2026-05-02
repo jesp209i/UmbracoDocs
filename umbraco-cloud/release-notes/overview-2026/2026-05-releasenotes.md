@@ -15,6 +15,6 @@ The feature is available under **Settings** > **Error Pages** and has two tabs:
 * **Managing Error Pages** — Upload, preview, edit, replace, and delete custom HTML pages (max 20 KB per file). Mark one as the default fallback for all new hostnames.
 * **Hostname Assignments** — See every hostname across all environments and which error page it uses. Assign pages individually or in bulk, and filter by environment, domain, or Top Level Domain.
 
-Because error pages are served by Cloudflare directly from blob storage — without your application running — they must be fully self-contained. All CSS, JavaScript, and fonts need to be inlined; external resources will not load. A reload mechanism is recommended so visitors are automatically sent back to your site once it recovers.
+Because error pages are served by Cloudflare directly from blob storage — without your application running — they must be fully self-contained. All CSS, JavaScript, and fonts need to be inline; external resources will not load. A reload mechanism is recommended so visitors are automatically sent back to your site once it recovers.
 
 For authoring guidelines and a ready-to-use HTML template, see the [Error Pages](../../build-and-customize-your-solution/handle-deployments-and-environments/error-pages.md) documentation.
