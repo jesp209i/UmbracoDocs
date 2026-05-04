@@ -3,6 +3,7 @@
 ## Key Takeaways
 
 * **Custom error pages** - Upload your own HTML error pages and assign them per hostname. Visitors see your page instead of the default Umbraco Cloud error page when your site is temporarily unavailable.
+* **Baseline enhancements**
 
 ## Custom error pages
 
@@ -18,3 +19,7 @@ The feature is available under **Settings** > **Error Pages** and has two tabs:
 Because error pages are served by Cloudflare directly from blob storage — without your application running — they must be fully self-contained. All CSS, JavaScript, and fonts need to be inline; external resources will not load. A reload mechanism is recommended so visitors are automatically sent back to your site once it recovers.
 
 For authoring guidelines and a ready-to-use HTML template, see the [Error Pages](../../build-and-customize-your-solution/handle-deployments-and-environments/error-pages.md) documentation.
+
+## Baseline enhancements
+
+Pushing a baseline update to child projects will trigger an activity on the baseline project. The activity is non-blocking, but will run until all children are updated.

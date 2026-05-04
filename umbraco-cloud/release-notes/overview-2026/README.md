@@ -7,6 +7,7 @@ description: Get an overview of the release notes for each month in 2026.
 ## [May 2026](2026-05-releasenotes.md)
 
 * **Custom error pages** - Upload your own HTML error pages and assign them per hostname, so visitors see your own page instead of the default Umbraco Cloud error page when your site is temporarily unavailable.
+* **Baseline enhancements** - An activity starts when the baseline pushes updates to child projects.
 
 ## [April 2026](2026-04-releasenotes.md)
 
