@@ -3,7 +3,7 @@
 ## Key Takeaways
 
 * **Custom error pages** - Upload your own HTML error pages and assign them per hostname. Visitors see your page instead of the default Umbraco Cloud error page when your site is temporarily unavailable.
-* **Baseline enhancements**
+* **Baseline enhancements** - An activity starts when the baseline pushes updates to child projects.
 
 ## Custom error pages
 
