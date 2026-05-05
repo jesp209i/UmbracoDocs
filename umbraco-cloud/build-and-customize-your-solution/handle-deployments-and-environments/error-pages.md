@@ -8,32 +8,31 @@ description: >-
 
 The Error Pages feature lets you serve a custom HTML page to visitors when your site is unavailable due to platform operations. You can assign custom pages to all your hostnames.
 
-Error pages are shown when an environment is restarting. Most deployments require a restart, so visitors may see the error page briefly.
+Error pages are shown when an environment is restarting. Most deployments require a restart, during which visitors may briefly see the error page.
 
 To handle error pages when the website is running, see the [Umbraco CMS tutorial: Custom Error Pages](https://docs.umbraco.com/umbraco-cms/tutorials/custom-error-page).
 
 {% hint style="info" %}
-Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are also likely unavailable. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](#error-page-authoring-guidelines) for details.
+Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are likely unavailable as well. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](#error-page-authoring-guidelines) for details.
 
-You need Admin or Write access to upload, manage and assign error pages. Users with read-only access can view the tabs but cannot make changes.
+You need Admin or Write access to upload, manage, and assign error pages. Users with read-only access can view the tabs but cannot make changes.
 {% endhint %}
 
 You manage the feature from two tabs: **Managing Error Pages** and **Hostname Assignments**.
 
 ## Managing Error Pages
 
-This tab lists all uploaded custom HTML pages and the built-in Umbraco Cloud Default. The **Hostnames** row shows a count of how many hostnames are currently assigned to that page.
+The Managing Error Pages tab lists all uploaded custom HTML pages and the built-in Umbraco Cloud Default. The **Hostnames** row shows a count of how many hostnames are currently assigned to that page.
 
 ![Manage Error Pages without any uploaded custom error pages](../../.gitbook/assets/cloud-error-pages-manage-empty.png)
 
 ![Manage Error Pages](../../.gitbook/assets/cloud-error-pages-manage.png)
 
-
 ### Upload a page
 
 1. Click **Upload Error Page**.
 2. Enter a name for the page.
-3. Optionally enter a description.
+3. Enter an optional description.
 4. Select an `.html` or `.htm` file (max **20 KB**).
 5. Click **Upload** to confirm.
 
@@ -41,15 +40,15 @@ This tab lists all uploaded custom HTML pages and the built-in Umbraco Cloud Def
 
 ### Default
 
-Click on one of the empty radio buttons next to any uploaded page. That page becomes the fallback for all new hostnames. The active default is selected in the **Default** column.
+Select one of the radio buttons next to any uploaded page. That page becomes the fallback for all new hostnames. The active default is selected in the **Default** column.
 
 ### Modify
 
 Click on any uploaded page to open the detail dialog. The dialog has three tabs:
 
-- **Preview** — shows the HTML content as formatted code.
-- **Edit** — update the display name and description without touching the file.
-- **Replace** — upload a new file version. Hostnames already assigned to this page continue using it after the replacement — no reassignment needed.
+- **Preview**: Shows the HTML content as formatted code.
+- **Edit**: Update the display name and description without touching the file.
+- **Replace**: Upload a new file version. Hostnames already assigned to this page continue using it after the replacement — no reassignment needed.
 
 ### Assign
 
@@ -61,7 +60,7 @@ Click the delete icon on a row to remove the page. If the page was assigned to a
 
 ## Hostname Assignments
 
-This tab shows every hostname across all environments and which error page it currently uses.
+The Hostname Assignments tab shows every hostname across all environments and which error page it currently uses.
 
 ![Error Pages - Hostname Assignments](../../.gitbook/assets/cloud-error-pages-hostnames.png)
 
@@ -69,10 +68,10 @@ This tab shows every hostname across all environments and which error page it cu
 
 Use the column header dropdowns to filter by:
 
-- **Environment** — show only hostnames from a specific environment.
-- **Error Page** — show only hostnames using a specific page, or those using the default.
-- **Domain** — filter by registrable domain (for example `mysite.co.uk`).
-- **Top-level domain (TLD)** — filter by top-level domain (for example `.co.uk`).
+- **Environment**: Show only hostnames from a specific environment.
+- **Error Page**: Show only hostnames using a specific page, or those using the default.
+- **Domain**: Filter by registrable domain (for example, `mysite.co.uk`).
+- **Top-level domain (TLD)**: Filter by top-level domain (for example, `.co.uk`).
 
 Click **Reset filters** to clear all active filters.
 
@@ -95,11 +94,11 @@ In the assign dialog, select **Use default (remove custom assignment)**. The hos
 
 Keep these requirements in mind when building a custom error page:
 
-- **Max file size**: 20 KB (HTML, CSS, and JS combined)
-- Only `.html` or `.htm` files are accepted
-- Error pages must be **self-contained** — no external resources (see below)
+- **Max file size**: 20 KB (HTML, CSS, and JS combined).
+- Only `.html` or `.htm` files are accepted.
+- Error pages must be **self-contained** — no external resources (see below).
 
-**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, and so on) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be inline.
+**Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, and so on) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be in line.
 
 - Inline all CSS in a `<style>` block.
 - Inline all JavaScript in a `<script>` block.
@@ -121,9 +120,9 @@ The `robots` tag prevents search engines from indexing your error page. The `Cac
 
 Tell visitors what is happening and give them a way back.
 
-**Auto-poll (recommended)** — Use JavaScript to periodically send a `HEAD` request to the current URL and reload automatically when the site responds with `200`. Use exponential back-off with jitter to avoid hammering the server, and show a manual refresh button after a set number of failed attempts:
+**Auto-poll (recommended)**: Use JavaScript to periodically send a `HEAD` request to the current URL and reload automatically when the site responds with `200`. Use exponential back-off with jitter to avoid hammering the server, and show a manual refresh button after a set number of failed attempts:
 
-```javascript
+```js
 var MAX_ATTEMPTS = 20;
 var attempt = 0;
 
@@ -154,7 +153,7 @@ function scheduleNext() {
 setTimeout(poll, 5000); // first check after 5 s
 ```
 
-**Fallback** — Always include a manual "Refresh page" button for visitors without JavaScript, or once polling is exhausted:
+**Fallback**: Always include a manual "Refresh page" button for visitors without JavaScript, or once polling is exhausted:
 
 ```html
 <button id="refresh-btn" onclick="location.reload()" style="display:none">Refresh page</button>
