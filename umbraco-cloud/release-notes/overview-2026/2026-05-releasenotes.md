@@ -2,10 +2,10 @@
 
 ## Key Takeaways
 
-* **Custom error pages** - Upload your own HTML error pages and assign them per hostname. Visitors see your page instead of the default Umbraco Cloud error page when your site is temporarily unavailable.
+* **Error pages** - Upload your own HTML error pages and assign them per hostname. Visitors see your page instead of the default Umbraco Cloud error page when your site is temporarily unavailable.
 * **Baseline enhancements** - An activity starts when the baseline pushes updates to child projects.
 
-## Custom error pages
+## Error pages
 
 You can now upload custom HTML error pages directly from the Umbraco Cloud Portal and assign them to any hostname across your environments. When an environment restarts, like during a deployment, visitors see your page instead of the default Umbraco Cloud error page.
 
