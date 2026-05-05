@@ -10,4 +10,4 @@ The icons in the Umbraco backoffice are based on [Lucide Icons](https://lucide.d
 
 ## Adding custom icons
 
-Umbraco allows you to add custom icons by [registering a new `icons` extension type](https://docs.umbraco.com/umbraco-cms/customizing/extending-overview/extension-types/icons).
+Umbraco allows you to add custom icons by [registering a new `icons` extension type](../extending-overview/extension-types/icons.md).
