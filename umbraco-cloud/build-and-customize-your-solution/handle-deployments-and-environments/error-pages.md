@@ -2,6 +2,8 @@
 description: >-
   Learn how to upload custom HTML error pages and assign them to hostnames on
   your Umbraco Cloud project.
+tags:
+  - ai-generated
 ---
 
 # Error Pages
@@ -13,7 +15,7 @@ Error pages are shown when an environment is restarting. Most deployments requir
 To handle error pages when the website is running, see the [Umbraco CMS tutorial: Custom Error Pages](https://docs.umbraco.com/umbraco-cms/tutorials/custom-error-page).
 
 {% hint style="info" %}
-Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are likely unavailable as well. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](#error-page-authoring-guidelines) for details.
+Umbraco Cloud serves error pages via Cloudflare, directly from blob storage. When your site is down, external resources such as fonts, stylesheets, and scripts are likely unavailable as well. Your error page must be entirely self-contained — see [Error Page Authoring guidelines](error-pages.md#error-page-authoring-guidelines) for details.
 
 You need Admin or Write access to upload, manage, and assign error pages. Users with read-only access can view the tabs but cannot make changes.
 {% endhint %}
@@ -46,9 +48,9 @@ Select one of the radio buttons next to any uploaded page. That page becomes the
 
 Click on any uploaded page to open the detail dialog. The dialog has three tabs:
 
-- **Preview**: Shows the HTML content as formatted code.
-- **Edit**: Update the display name and description without touching the file.
-- **Replace**: Upload a new file version. Hostnames already assigned to this page continue using it after the replacement — no reassignment needed.
+* **Preview**: Shows the HTML content as formatted code.
+* **Edit**: Update the display name and description without touching the file.
+* **Replace**: Upload a new file version. Hostnames already assigned to this page continue using it after the replacement — no reassignment needed.
 
 ### Assign
 
@@ -68,10 +70,10 @@ The Hostname Assignments tab shows every hostname across all environments and wh
 
 Use the column header dropdowns to filter by:
 
-- **Environment**: Show only hostnames from a specific environment.
-- **Error Page**: Show only hostnames using a specific page, or those using the default.
-- **Domain**: Filter by registrable domain (for example, `mysite.co.uk`).
-- **Top-level domain (TLD)**: Filter by top-level domain (for example, `.co.uk`).
+* **Environment**: Show only hostnames from a specific environment.
+* **Error Page**: Show only hostnames using a specific page, or those using the default.
+* **Domain**: Filter by registrable domain (for example, `mysite.co.uk`).
+* **Top-level domain (TLD)**: Filter by top-level domain (for example, `.co.uk`).
 
 Click **Reset filters** to clear all active filters.
 
@@ -94,16 +96,16 @@ In the assign dialog, select **Use default (remove custom assignment)**. The hos
 
 Keep these requirements in mind when building a custom error page:
 
-- **Max file size**: 20 KB (HTML, CSS, and JS combined).
-- Only `.html` or `.htm` files are accepted.
-- Error pages must be **self-contained** — no external resources (see below).
+* **Max file size**: 20 KB (HTML, CSS, and JS combined).
+* Only `.html` or `.htm` files are accepted.
+* Error pages must be **self-contained** — no external resources (see below).
 
 **Why self-contained?** Cloudflare serves your error page directly from blob storage. When your site is unavailable, external fonts, stylesheets, and scripts (Google Fonts, CDN libraries, and so on) are likely to fail too. Without those resources, the error page appears broken or unstyled. Everything must be in line.
 
-- Inline all CSS in a `<style>` block.
-- Inline all JavaScript in a `<script>` block.
-- Use system fonts instead of web fonts: `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`.
-- Inline any icons as SVG markup rather than loading an icon library.
+* Inline all CSS in a `<style>` block.
+* Inline all JavaScript in a `<script>` block.
+* Use system fonts instead of web fonts: `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`.
+* Inline any icons as SVG markup rather than loading an icon library.
 
 ### Recommended meta tags
 
